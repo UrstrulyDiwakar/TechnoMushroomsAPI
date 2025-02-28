@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users - ARCRM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        input[type="text"], button, select {
+            padding: 8px;
+            margin-right: 5px;
+        }
+        button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .pagination {
+            text-align: center;
+        }
+        .pagination button {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <div>
+            <label for="recordsPerPage">Records per page</label>
+            <select id="recordsPerPage">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50" selected>50</option>
+                <option value="100">100</option>
+            </select>
+            <button onclick="refreshPage()">Refresh</button>
+        </div>
+        <div>
+            <input type="text" id="searchBox" placeholder="Search users..." onkeyup="searchUsers()">
+            <button onclick="addUser()">+ Add</button>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Profile</th>
+                <th>Reporting To</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="userTable">
+            <!-- User rows will be inserted here -->
+        </tbody>
+    </table>
+    <div class="pagination">
+        <button onclick="previousPage()">&#8249;</button>
+        <span>1 - 28 / 28</span>
+        <button onclick="nextPage()">&#8250;</button>
+    </div>
+    <script>
+        function searchUsers() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchBox");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("userTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0]; // Adjust index as needed for different columns
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }       
+            }
+        }
+
+        function addUser() {
+            alert("Add user functionality to be implemented!"); // Placeholder
+        }
+
+        function previousPage() {
+            alert("Go to the previous page functionality to be implemented!"); // Placeholder
+        }
+
+        function nextPage() {
+            alert("Go to the next page functionality to be implemented!"); // Placeholder
+        }
+
+        function refreshPage() {
+            alert("Refresh the page to reload the data!"); // Placeholder
+        }
+    </script>
+</body>
+</html>
