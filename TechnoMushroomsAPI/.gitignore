@@ -101,3 +101,38 @@ git rm -r --cached .
 git add .
 git commit -m "Updated .gitignore to exclude system files"
 
+# Ignore system folders and user directories
+../.android/
+../.cache/
+../.eclipse/
+../.gitconfig
+../.gradle/
+../.lemminx/
+../.lesshst
+../.m2/
+../.minttyrc
+../.p2/
+../.redhat/
+../.sts4/
+../.vscode/
+../AppData/
+../Contacts/
+../Desktop/
+../Documents/
+../Downloads/
+../Favorites/
+../Links/
+../Music/
+../MyReactNativeApp/
+../NTUSER.*
+../OneDrive/
+../Pictures/
+../Saved Games/
+../Searches/
+../Videos/
+../eclipse-workspace/
+../eclipse/
+../html/
+../node_modules/
+../package-lock.json
+../package.json
